@@ -5,15 +5,31 @@ function LoginPage() {
   const [role, setRole] = useState("employee");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
-    e.preventDefault();
+  const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+const [error, setError] = useState("");
 
-    if (role === "admin") {
+
+ const handleLogin = (e) => {
+  e.preventDefault();
+
+  setError(""); // clear previous error
+
+  if (role === "admin") {
+    if (email === "admin@kb.com" && password === "admin123") {
       navigate("/admin/dashboard");
     } else {
-      navigate("/user/dashboard");
+      setError("Invalid admin credentials");
     }
-  };
+  } else {
+    if (email === "user@kb.com" && password === "user123") {
+      navigate("/user/dashboard");
+    } else {
+      setError("Invalid employee credentials");
+    }
+  }
+};
+
 
   return (
     <div className="flex w-full h-screen overflow-hidden">
@@ -117,9 +133,12 @@ function LoginPage() {
               </label>
               <input
                 type="email"
+                 value={email}
+               onChange={(e) => setEmail(e.target.value)}
                 placeholder="e.g. j.doe@company.com"
                 className="w-full h-14 px-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#13a4ec]/30"
-              />
+                />
+
             </div>
 
             {/* Password */}
@@ -138,9 +157,12 @@ function LoginPage() {
 
               <input
                 type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
                 className="w-full h-14 px-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#13a4ec]/30"
-              />
+                />
+
             </div>
 
             {/* Remember */}
@@ -148,6 +170,13 @@ function LoginPage() {
               <input type="checkbox" />
               <span>Remember this device for 30 days</span>
             </div>
+
+              {/* Error Message */}
+                {error && (
+                <div className="text-red-500 text-sm font-medium">
+                {error}
+                </div>
+                )}
 
             {/* Login Button */}
             <button
