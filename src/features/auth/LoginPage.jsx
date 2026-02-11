@@ -1,34 +1,41 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
+
 
 function LoginPage() {
   const [role, setRole] = useState("employee");
   const navigate = useNavigate();
+  const { login } = useAuth();
+
 
   const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 const [error, setError] = useState("");
 
 
- const handleLogin = (e) => {
+const handleLogin = (e) => {
   e.preventDefault();
-
-  setError(""); // clear previous error
+  setError("");
 
   if (role === "admin") {
     if (email === "admin@kb.com" && password === "admin123") {
+      login("admin", email);
       navigate("/admin/dashboard");
     } else {
       setError("Invalid admin credentials");
     }
   } else {
     if (email === "user@kb.com" && password === "user123") {
+      login("employee", email);
       navigate("/user/dashboard");
     } else {
       setError("Invalid employee credentials");
     }
   }
 };
+
+
 
 
   return (
