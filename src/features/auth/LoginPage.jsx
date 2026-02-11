@@ -1,7 +1,19 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const [role, setRole] = useState("employee");
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    if (role === "admin") {
+      navigate("/admin/dashboard");
+    } else {
+      navigate("/user/dashboard");
+    }
+  };
 
   return (
     <div className="flex w-full h-screen overflow-hidden">
@@ -70,6 +82,7 @@ function LoginPage() {
           <div className="flex p-1 bg-gray-100 rounded-xl h-12 mb-8">
 
             <button
+              type="button"
               onClick={() => setRole("employee")}
               className={`flex-1 flex items-center justify-center text-sm font-semibold rounded-lg transition-all ${
                 role === "employee"
@@ -81,6 +94,7 @@ function LoginPage() {
             </button>
 
             <button
+              type="button"
               onClick={() => setRole("admin")}
               className={`flex-1 flex items-center justify-center text-sm font-semibold rounded-lg transition-all ${
                 role === "admin"
@@ -94,7 +108,7 @@ function LoginPage() {
           </div>
 
           {/* Form */}
-          <form className="space-y-6">
+          <form onSubmit={handleLogin} className="space-y-6">
 
             {/* Email */}
             <div>
