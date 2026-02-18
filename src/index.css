@@ -23,5 +23,8 @@ html {
 
 /* Prevent layout shift */
 body {
-  -ms-overflow-style: none; /* IE */
+  -ms-overflow-style: none;
+  font-family: 'Inter', sans-serif; /* IE */
 }
+
+

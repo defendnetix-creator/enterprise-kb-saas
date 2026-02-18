@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Sidebar() {
   return (
@@ -20,46 +20,70 @@ function Sidebar() {
       {/* Navigation */}
       <nav className="flex-1 px-4 space-y-1 overflow-y-auto">
 
-        <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-indigo-100 text-indigo-600 font-semibold">
+        {/* Overview */}
+        <NavLink
+          to="/admin/dashboard"
+          className={({ isActive }) =>
+            `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
+              isActive
+                ? "bg-indigo-100 text-indigo-600 font-semibold"
+                : "text-slate-600 hover:bg-slate-50"
+            }`
+          }
+        >
           <span className="material-symbols-outlined text-[22px]">
             dashboard
           </span>
-          <span className="text-sm">Overview</span>
-        </div>
+          Overview
+        </NavLink>
 
-        <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">
+        {/* Articles Management */}
+        <NavLink
+          to="/admin/articles"
+          className={({ isActive }) =>
+            `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
+              isActive
+                ? "bg-indigo-100 text-indigo-600 font-semibold"
+                : "text-slate-600 hover:bg-slate-50"
+            }`
+          }
+        >
           <span className="material-symbols-outlined text-[22px]">
             description
           </span>
-          <span className="text-sm">Articles Management</span>
-        </div>
+          Articles Management
+        </NavLink>
 
-        <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">
+        {/* Categories */}
+        <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors text-sm">
           <span className="material-symbols-outlined text-[22px]">
             folder_open
           </span>
-          <span className="text-sm">Categories</span>
+          Categories
         </div>
 
-        <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">
+        {/* Users */}
+        <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors text-sm">
           <span className="material-symbols-outlined text-[22px]">
             group
           </span>
-          <span className="text-sm">Users</span>
+          Users
         </div>
 
-        <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">
+        {/* Analytics */}
+        <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors text-sm">
           <span className="material-symbols-outlined text-[22px]">
             analytics
           </span>
-          <span className="text-sm">Analytics</span>
+          Analytics
         </div>
 
-        <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">
+        {/* System Settings */}
+        <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors text-sm">
           <span className="material-symbols-outlined text-[22px]">
             settings
           </span>
-          <span className="text-sm">System Settings</span>
+          System Settings
         </div>
 
       </nav>
