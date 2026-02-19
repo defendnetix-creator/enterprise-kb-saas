@@ -2,31 +2,35 @@ import { NavLink } from "react-router-dom";
 
 function Sidebar() {
   return (
-    <aside className="w-64 flex-shrink-0 bg-white border-r border-slate-200 flex flex-col">
+    <aside className="w-64 h-screen flex-shrink-0 bg-white border-r border-slate-200 flex flex-col">
 
-      {/* Logo */}
+      {/* LOGO */}
       <div className="p-6 flex items-center gap-3">
-        <div className="bg-indigo-600 rounded-lg p-2 text-white flex items-center justify-center">
-          <span className="material-symbols-outlined">terminal</span>
+        <div className="bg-[#2513ec] rounded-lg p-2 text-white flex items-center justify-center">
+          <span className="material-symbols-outlined text-xl">
+            terminal
+          </span>
         </div>
         <div>
           <h1 className="text-sm font-bold tracking-tight text-slate-900 uppercase">
             IT Knowledge
           </h1>
-          <p className="text-xs text-slate-500">Admin Console</p>
+          <p className="text-xs text-slate-500">
+            Admin Console
+          </p>
         </div>
       </div>
 
-      {/* Navigation */}
+      {/* NAVIGATION */}
       <nav className="flex-1 px-4 space-y-1 overflow-y-auto">
 
-        {/* Overview */}
+        {/* OVERVIEW */}
         <NavLink
           to="/admin/dashboard"
           className={({ isActive }) =>
-            `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
+            `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all ${
               isActive
-                ? "bg-indigo-100 text-indigo-600 font-semibold"
+                ? "bg-[#2513ec]/10 text-[#2513ec] font-semibold"
                 : "text-slate-600 hover:bg-slate-50"
             }`
           }
@@ -37,13 +41,13 @@ function Sidebar() {
           Overview
         </NavLink>
 
-        {/* Articles Management */}
+        {/* ARTICLES */}
         <NavLink
           to="/admin/articles"
           className={({ isActive }) =>
-            `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
+            `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all ${
               isActive
-                ? "bg-indigo-100 text-indigo-600 font-semibold"
+                ? "bg-[#2513ec]/10 text-[#2513ec] font-semibold"
                 : "text-slate-600 hover:bg-slate-50"
             }`
           }
@@ -54,44 +58,82 @@ function Sidebar() {
           Articles Management
         </NavLink>
 
-        {/* Categories */}
-        <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors text-sm">
+        {/* CATEGORIES */}
+        <NavLink
+          to="/admin/categories"
+          className={({ isActive }) =>
+            `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all ${
+              isActive
+                ? "bg-[#2513ec]/10 text-[#2513ec] font-semibold"
+                : "text-slate-600 hover:bg-slate-50"
+            }`
+          }
+        >
           <span className="material-symbols-outlined text-[22px]">
-            folder_open
+            category
           </span>
           Categories
-        </div>
+        </NavLink>
 
-        {/* Users */}
-        <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors text-sm">
+        {/* USERS */}
+        <NavLink
+          to="/admin/users"
+          className={({ isActive }) =>
+            `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all ${
+              isActive
+                ? "bg-[#2513ec]/10 text-[#2513ec] font-semibold"
+                : "text-slate-600 hover:bg-slate-50"
+            }`
+          }
+        >
           <span className="material-symbols-outlined text-[22px]">
             group
           </span>
           Users
-        </div>
+        </NavLink>
 
-        {/* Analytics */}
-        <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors text-sm">
+        {/* ANALYTICS */}
+        <NavLink
+          to="/admin/analytics"
+          className={({ isActive }) =>
+            `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all ${
+              isActive
+                ? "bg-[#2513ec]/10 text-[#2513ec] font-semibold"
+                : "text-slate-600 hover:bg-slate-50"
+            }`
+          }
+        >
           <span className="material-symbols-outlined text-[22px]">
             analytics
           </span>
           Analytics
-        </div>
+        </NavLink>
 
-        {/* System Settings */}
-        <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors text-sm">
+        {/* SETTINGS */}
+        <NavLink
+          to="/admin/settings"
+          className={({ isActive }) =>
+            `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all ${
+              isActive
+                ? "bg-[#2513ec]/10 text-[#2513ec] font-semibold"
+                : "text-slate-600 hover:bg-slate-50"
+            }`
+          }
+        >
           <span className="material-symbols-outlined text-[22px]">
             settings
           </span>
           System Settings
-        </div>
+        </NavLink>
 
       </nav>
 
-      {/* Bottom Button */}
+      {/* BOTTOM BUTTON */}
       <div className="p-4 border-t border-slate-200">
-        <button className="w-full flex items-center justify-center gap-2 bg-indigo-600 text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-indigo-700 transition-colors shadow-sm">
-          <span className="material-symbols-outlined text-sm">add</span>
+        <button className="w-full flex items-center justify-center gap-2 bg-[#2513ec] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-indigo-700 transition-colors shadow-sm">
+          <span className="material-symbols-outlined text-sm">
+            add
+          </span>
           Create New Article
         </button>
       </div>
